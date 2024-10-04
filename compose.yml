@@ -1,0 +1,19 @@
+---
+version: "2.1"
+services:
+  rtl_433:
+    image: hertzg/rtl_433:master
+    container_name: rtl_433
+    environment:
+      - TZ=America/New_York
+    command: -F json -R 40 -M time:unix -F mqtt://10.0.1.132,retain=0,events=rtl_433[/model][/id]
+    restart: unless-stopped
+    devices:
+      - /dev/bus/usb/002/003:/dev/bus/usb/002/003
+  rtlmqttwu:
+    image: home.shotton.us:5443/rtlmqttwu
+    environment:
+      - TZ=America/New_York
+    restart: unless-stopped
+    depends_on:
+      - rtl_433

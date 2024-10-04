@@ -1,0 +1,19 @@
+{
+  "name": "mqtt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-docker": "/bin/bash ./build_docker.sh",
+    "start": "node index"
+  },
+  "keywords": [],
+  "author": "cshotton",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "*",
+    "mqtt": "^5.10.0",
+    "node-fetch-commonjs": "^3.3.2"
+  }
+}
